@@ -1,5 +1,5 @@
 export const getPromptById = async (promptId: string) => {
-  const res = await fetch(`${process.env.URL}/api/prompt/${promptId}`,
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/prompt/${promptId}`,
     {
       cache: "no-store",
     }
@@ -9,7 +9,7 @@ export const getPromptById = async (promptId: string) => {
 }
 
 export const getPrompts = async (query?: string, tag?: string) => {
-  const res = await fetch(`${process.env.URL}/api/prompt`,
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/prompt`,
     {
       cache: "no-store",
       method: "POST",
@@ -23,7 +23,7 @@ export const getPrompts = async (query?: string, tag?: string) => {
 }
 
 export const getPromptsByUserId = async (userId: string) => {
-  const res = await fetch(`${process.env.URL}/api/user/${userId}/post`,
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/user/${userId}/post`,
     {
       cache: "no-store"
     }
@@ -32,7 +32,7 @@ export const getPromptsByUserId = async (userId: string) => {
 }
 
 export const getUserById = async (userId: string) => {
-  const res = await fetch(`${process.env.URL}/api/user/${userId}`,
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/user/${userId}`,
     {
       cache: "no-store"
     }

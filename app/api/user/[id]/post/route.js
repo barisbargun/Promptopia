@@ -1,5 +1,6 @@
 import Post from "@models/post";
 import { connectToDB } from "@utils/database";
+import responseMessages from "@lib/responseMessages";
 
 export const GET = async (req, { params }) => {
   const { id } = await params;

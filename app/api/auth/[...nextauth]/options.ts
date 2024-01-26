@@ -1,5 +1,5 @@
 import { AuthOptions, NextAuthOptions } from "next-auth";
-import GoogleProvider from "next-auth/providers/google"; 
+import GoogleProvider from "next-auth/providers/google";
 import User from "@models/user";
 import { connectToDB } from "@/utils/database";
 
@@ -13,11 +13,15 @@ const authOptions: NextAuthOptions = {
   ],
   callbacks: {
     async session({ session }) {
-      const sessionUser = await User.findOne({ email: session?.user?.email });
-      // @ts-ignore
-      session.user.id = sessionUser._id.toString();
-
+      try {
+        const sessionUser = await User.findOne({ email: session?.user?.email });
+        // @ts-ignore
+        session.user.id = sessionUser._id.toString();
+      } catch (error) {
+        console.log(error);
+      }
       return session;
+
     },
     async signIn({ profile }) {
       try {
