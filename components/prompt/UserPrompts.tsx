@@ -1,7 +1,6 @@
 import authOptions from '@app/api/auth/[...nextauth]/options';
 import Feed from '@components/Feed';
-import { FeedSkeleton } from '@components/Skeletons';
-import { getPromptsByUserId, getUserById } from '@lib/data'
+import { getPromptsByUserId } from '@lib/data'
 import { getServerSession } from "next-auth";
 
 const UserPrompts = async ({ id }: { id: string }) => {

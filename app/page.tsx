@@ -19,7 +19,7 @@ const Page = async ({ searchParams }: { searchParams: ISearchParams }) => {
       </p>
 
       <div className='w-full flex-col-center'>
-        <div className='w-[50%] py-4'><Search /></div>
+        <div className='py-4 w-[90%] sm:w-[80%] xl:w-[50%]'><Search /></div>
         <Suspense key={searchParams?.query || "" + searchParams?.tag || ""} fallback={<FeedSkeleton/>} >
           <AllPrompts searchParams={searchParams} />
         </Suspense>

@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { useEffect, useMemo, useState } from 'react'
 import { linkConstant } from '@constants';
 const Nav = () => {
-  const { data: session }:{data:ISession | null} = useSession();
+  const { data: session }: { data: ISession | null } = useSession();
   const [providers, setProviders] = useState<any>(null);
 
   useEffect(() => {
@@ -34,16 +34,18 @@ const Nav = () => {
   }, [providers])
 
   const returnProfileImage = useMemo(() => {
-    return(
-    <Image
-      src={ "https://lh3.googleusercontent.com/a/ACg8ocI3YrqUv-4b2B6y3n_zOPXSi4LEDcVmUvNAahGNpYdkaYg=s96-c"}
-      width={35}
-      height={35}
-      alt='profile-image'
-      className='rounded-full'
-    />
+    return (
+      <Image
+        src={"https://lh3.googleusercontent.com/a/ACg8ocI3YrqUv-4b2B6y3n_zOPXSi4LEDcVmUvNAahGNpYdkaYg=s96-c"}
+        width={35}
+        height={35}
+        alt='profile-image'
+        className='rounded-full'
+      />
     )
   }, [session?.user?.image])
+
+
 
   return (
     <nav className='flex-between gap-2 w-full'>
@@ -66,8 +68,7 @@ const Nav = () => {
               <>
                 <Link href={linkConstant.CREATE_PROMPT} className='black_btn'>Create Post</Link>
                 <button onClick={() => signOut()} className='outline_btn'>Sign out</button>
-                <Link href={`/profile/${session.user?.id}` }>
-                  
+                <Link href={`${linkConstant.PROFILE}/${session.user?.id}`}>
                   {returnProfileImage}
                 </Link>
               </>
@@ -87,13 +88,13 @@ const Nav = () => {
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 <DropdownMenuItem className='cursor-pointer'>
-                  <Link href={linkConstant.PROFILE}>Profile</Link>
+                  <Link href={`${linkConstant.PROFILE}/${session.user?.id}`}  className='w-full h-full'>Profile</Link>
                 </DropdownMenuItem>
 
                 <DropdownMenuSeparator />
 
                 <DropdownMenuItem className='cursor-pointer'>
-                  <Link href={linkConstant.CREATE_PROMPT}>Create Post</Link>
+                  <Link href={linkConstant.CREATE_PROMPT} className='w-full h-full'>Create Post</Link>
                 </DropdownMenuItem>
 
                 <DropdownMenuSeparator />
