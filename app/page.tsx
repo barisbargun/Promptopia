@@ -2,7 +2,7 @@ import Feed from '@components/Feed'
 import Search from '@components/Search';
 import { FeedSkeleton } from '@components/Skeletons';
 import AllPrompts from '@components/prompt/AllPrompts';
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 
 const Page = async ({ searchParams }: { searchParams: ISearchParams }) => {
   return (
