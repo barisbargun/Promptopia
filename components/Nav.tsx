@@ -3,7 +3,7 @@ import { DropdownMenu, DropdownMenuTrigger, DropdownMenuContent, DropdownMenuLab
 import { getProviders, signIn, signOut, useSession } from 'next-auth/react';
 import Image from 'next/image'
 import Link from 'next/link'
-import React, { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { linkConstant } from '@constants';
 const Nav = () => {
   const { data: session }:{data:ISession | null} = useSession();

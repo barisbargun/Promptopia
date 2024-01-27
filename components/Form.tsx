@@ -2,7 +2,7 @@
 import { createPrompt, updatePrompt } from '@lib/actions';
 import { useSession } from 'next-auth/react';
 import Link from 'next/link';
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 type props = {
   type: 'Create' | 'Update',
