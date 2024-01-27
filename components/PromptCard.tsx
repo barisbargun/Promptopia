@@ -1,6 +1,7 @@
 "use client"
+import React from 'react'
 import { HandleCopy } from '@lib/Buttons';
-import { deletePrompt, updatePrompt } from '@lib/actions';
+import { deletePrompt } from '@lib/actions';
 import Image from 'next/image'
 import Link from 'next/link';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation'
@@ -12,13 +13,12 @@ type props = {
 }
 
 const PromptCard = ({ prompt, showButtons, activeSearch }: props) => {
-
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
 
   const handleSearchTag = () => {
-    if (activeSearch == false) return;
+    if (activeSearch == false || !searchParams) return;
     const params = new URLSearchParams(searchParams);
     if (prompt?.tag) params.set("tag", prompt.tag);
     replace(`${pathname}?${params.toString()}`);
