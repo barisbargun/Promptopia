@@ -14,8 +14,8 @@ export const getPrompts = async (query?: string, tag?: string) => {
       cache: "no-store",
       method: "POST",
       body: JSON.stringify({
-        query: query || "",
-        tag: tag || ""
+        query: query,
+        tag: tag
       })
     }
   )

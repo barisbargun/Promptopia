@@ -4,7 +4,7 @@ import { FeedSkeleton } from '@components/Skeletons';
 import AllPrompts from '@components/prompt/AllPrompts';
 import { Suspense } from 'react'
 
-const Page = async ({ searchParams }: { searchParams: ISearchParams }) => {
+const Page = ({ searchParams }: { searchParams: ISearchParams }) => {
   return (
     <section className='w-full flex-center flex-col mt-8'>
 

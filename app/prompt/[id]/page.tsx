@@ -1,7 +1,7 @@
 import Form from '@components/Form';
 import { getPromptById } from '@lib/data'
 
-const page = async ({ params }: { params: { id: string } }) => {
+const Page = async ({ params }: { params: { id: string } }) => {
   const prompt = await getPromptById(params.id);
   return (
     prompt &&
@@ -9,4 +9,4 @@ const page = async ({ params }: { params: { id: string } }) => {
   )
 }
 
-export default page
+export default Page

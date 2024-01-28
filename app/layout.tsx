@@ -1,6 +1,5 @@
 import Nav from '@components/Nav';
 import Provider from '@components/Provider';
-import QueryProvider from '@providers/QueryProvider';
 import '@styles/globals.css';
 
 export const metadata = {
@@ -8,11 +7,10 @@ export const metadata = {
   description: 'Discover & share AI prompts',
 }
 
-const layout = ({ children }: { children: React.ReactNode }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='en'>
       <body>
-        <QueryProvider>
           <Provider>
             <div className='main'>
               <div className='gradient' />
@@ -22,9 +20,8 @@ const layout = ({ children }: { children: React.ReactNode }) => {
               {children}
             </div>
           </Provider>
-        </QueryProvider>
       </body>
     </html>
   )
 }
-export default layout;
+export default Layout;

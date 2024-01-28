@@ -1,6 +1,6 @@
 import Form from '@components/Form'
-const Page = () => {
 
+const Page = () => {
   return (
     <Form type='Create'></Form>
   )

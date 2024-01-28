@@ -6,11 +6,12 @@ export const POST = async (req) => {
   const { query, tag } = await req.json();
   try {
     await connectToDB();
+
     const res = await Post.find(
       {
-        prompt: { $regex: query, $options: 'i' },
-        tag: { $regex: tag, $options: 'i' }
-    }).populate('creator');
+        prompt: { $regex: query || "", $options: 'i' },
+        tag: { $regex: tag || "", $options: 'i' }
+      }).populate('creator');
     return new Response(JSON.stringify(res), { status: 200 });
   } catch (error) {
     return responseMessages("ServerError");

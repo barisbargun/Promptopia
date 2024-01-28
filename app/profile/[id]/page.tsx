@@ -3,8 +3,7 @@ import { FeedSkeleton, ProfileSkeleton } from '@components/Skeletons';
 import UserPrompts from '@components/prompt/UserPrompts';
 import { Suspense } from 'react';
 
-const page = async ({ params }: { params: { id: string } }) => {
-
+const Page = ({ params }: { params: { id: string } }) => {
   return (
     params?.id &&
     <div className='w-full flex flex-col'>
@@ -21,4 +20,4 @@ const page = async ({ params }: { params: { id: string } }) => {
   )
 }
 
-export default page
+export default Page
