@@ -10,3 +10,8 @@ interface ICreatePrompt{
   prompt:string;
   tag:string;
 }
+
+interface IDeletePrompt{
+  _id:string;
+  userId?:string;
+}

@@ -26,7 +26,7 @@ const PromptCard = ({ prompt, showButtons, activeSearch }: props) => {
 
   const handleDelete = async () => {
     if (showButtons && prompt && prompt._id)
-      await deletePrompt(prompt._id);
+      await deletePrompt({ _id: prompt._id, userId:prompt?.creator?._id});
   }
 
   return (

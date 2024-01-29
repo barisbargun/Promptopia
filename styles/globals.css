@@ -142,14 +142,6 @@
     @apply max-sm:hidden font-satoshi font-semibold text-lg text-black tracking-wide;
   }
 
-  .dropdown {
-    @apply absolute right-0 top-full mt-3 w-full p-5 rounded-lg bg-white min-w-[210px] flex flex-col gap-2 justify-end items-end;
-  }
-
-  .dropdown_link {
-    @apply text-sm font-inter text-gray-700 hover:text-gray-500 font-medium;
-  }
-
   /* PromptCard Component */
   .prompt_card {
     @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding backdrop-blur-lg backdrop-filter;

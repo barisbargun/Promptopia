@@ -16,5 +16,4 @@ export const POST = async (req) => {
   } catch (error) {
     return responseMessages("ServerError");
   }
-
 }

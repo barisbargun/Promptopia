@@ -12,7 +12,6 @@ export const GET = async (req, { params }) => {
   } catch (error) {
     return responseMessages("ServerError");
   }
-
 }
 
 export const PATCH = async (req, { params }) => {

@@ -1,6 +1,5 @@
-"use server";
-
-import { revalidatePath } from "next/cache";
+"use server"
+import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 
 export const createPrompt = async (post: ICreatePrompt) => {
@@ -9,7 +8,7 @@ export const createPrompt = async (post: ICreatePrompt) => {
     body: JSON.stringify(post)
   })
   if (res.ok) {
-    revalidatePath(`/`)
+    revalidateTag("promptCollection")
     redirect("/");
   }
   return res.ok;
@@ -22,20 +21,20 @@ export const updatePrompt = async (prompt: IPrompt) => {
     body: JSON.stringify({prompt:prompt.prompt, tag:prompt.tag})
   })
   if (res.ok) {
-    revalidatePath(`/`)
+    revalidateTag("promptCollection")
     redirect("/")
   }
   return res.ok;
 }
 
-export const deletePrompt = async (_id: string) => {
-  if (!_id) return false;
-  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/prompt/${_id}`, {
+export const deletePrompt = async (values: IDeletePrompt) => {
+  if (!values._id || !values.userId) return false;
+  const res = await fetch(`${process.env.NEXTAUTH_URL}/api/prompt/${values._id}`, {
     method: "DELETE",
-    body: JSON.stringify({ _id })
+    body: JSON.stringify({ _id:values._id })
   })
   if (res.ok) {
-    revalidatePath(`/profile/${_id}`)
+    revalidateTag("promptCollection")
   } 
   return res.ok;
 } 
