@@ -14,6 +14,7 @@ const authOptions: NextAuthOptions = {
   callbacks: {
     async session({ session }) {
       try {
+        await connectToDB();
         const sessionUser = await User.findOne({ email: session?.user?.email });
         // @ts-ignore
         session.user.id = sessionUser._id.toString();
@@ -25,7 +26,7 @@ const authOptions: NextAuthOptions = {
     },
     async signIn({ profile }) {
       try {
-        connectToDB();
+        await connectToDB();
 
         // check if user already exists
         const userExists = await User.findOne({ email: profile?.email });
@@ -50,7 +51,7 @@ const authOptions: NextAuthOptions = {
       return token;
     }
   },
-  secret: process.env.NEXTAUTH_SECRET
+  secret:process.env.NEXTAUTH_SECRET
 }
 
 export default authOptions;

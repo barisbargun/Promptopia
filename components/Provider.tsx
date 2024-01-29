@@ -4,7 +4,7 @@ import { Session } from 'next-auth';
 
 type props = {
   children:React.ReactNode;
-  session?:Session & {user:{id?:string}}
+  session?:Session
 }
 
 const Provider = ({children, session}:props) => {

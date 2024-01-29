@@ -12,7 +12,6 @@ const Search = () => {
   const { replace } = useRouter();
 
   const handleSearch = useDebouncedCallback((value: string) => {
-    if (!searchParams) return;
     const params = new URLSearchParams(searchParams);
     if (value) params.set("query", value);
     else params.delete("query");
