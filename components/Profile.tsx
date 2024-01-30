@@ -1,6 +1,7 @@
 import { getUserById } from '@lib/data';
 import Image from 'next/image'
 
+
 const Profile = async ({ id }: { id: string }) => {
   const user = await getUserById(id);
   return (

@@ -38,7 +38,7 @@ const Nav = () => {
   const returnProfileImage = useMemo(() => {
     return (
       <Image
-        src={"https://lh3.googleusercontent.com/a/ACg8ocI3YrqUv-4b2B6y3n_zOPXSi4LEDcVmUvNAahGNpYdkaYg=s96-c"}
+        src={session?.user?.image || "/assets/icons/profile-placeholder.svg"}
         width={35}
         height={35}
         alt='profile-image'

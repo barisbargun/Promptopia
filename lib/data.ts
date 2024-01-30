@@ -32,7 +32,7 @@ export const getPromptsByUserId = async (userId: string) => {
   return res.ok ? await res?.json() : null;
 }
 
-export const getUserById = async (userId: string) => {
+export const getUserById = async (userId: string):Promise<IUser | null> => {
   const res = await fetch(`${process.env.NEXTAUTH_URL}/api/user/${userId}`,
     {
       cache: "force-cache"

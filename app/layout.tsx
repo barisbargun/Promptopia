@@ -10,16 +10,19 @@ export const metadata = {
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang='en'>
+      <head>
+        <link rel="icon" href="favicon.svg" sizes="any" />
+      </head>
       <body>
-          <Provider>
-            <div className='main'>
-              <div className='gradient' />
-            </div>
-            <div className='app pt-3 pb-6'>
-              <Nav />
-              {children}
-            </div>
-          </Provider>
+        <Provider>
+          <div className='main'>
+            <div className='gradient' />
+          </div>
+          <div className='app pt-3 pb-6'>
+            <Nav />
+            {children}
+          </div>
+        </Provider>
       </body>
     </html>
   )
